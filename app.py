@@ -19,9 +19,9 @@ import traceback
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi('RBAYU0Red+gxK6lHf+WLzF2mtiF3YNVImBKaeWTkDUVakiDWuNyF/bXxgxrPuVn2yX+2GvYNF6z3hozwzNHIKa0D+djwr3cKEXnXHFmIbTYGXtg2a2LYvEgUCvCDhPCyhD+Ojsh2qXC+ag80wg4GBAdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('swwUksi39rz0HTFPkvDvQVu0ls50uXq/I1eT4IKiusATGYzBWrhM7gwIkhHNVQIdGWE4FrSlY/HM5FIwlrQvRH73x6Mjt6EIRHuAU9o48olUPOu30kT4deWCgwyUSvLTPDr4FLO49Q/QSL0mpkShgAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('359f2e4dd571624475a8dff30205f2ec')
+handler = WebhookHandler('c45890ff8f0d3d6ba918f582489d8560')
 # OPENAI API Key初始化設定
 # openai.api_key = os.getenv('OPENAI_API_KEY')
 

@@ -19,20 +19,20 @@ import traceback
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi(os.getenv('RBAYU0Red+gxK6lHf+WLzF2mtiF3YNVImBKaeWTkDUVakiDWuNyF/bXxgxrPuVn2yX+2GvYNF6z3hozwzNHIKa0D+djwr3cKEXnXHFmIbTYGXtg2a2LYvEgUCvCDhPCyhD+Ojsh2qXC+ag80wg4GBAdB04t89/1O/w1cDnyilFU='))
+line_bot_api = LineBotApi('RBAYU0Red+gxK6lHf+WLzF2mtiF3YNVImBKaeWTkDUVakiDWuNyF/bXxgxrPuVn2yX+2GvYNF6z3hozwzNHIKa0D+djwr3cKEXnXHFmIbTYGXtg2a2LYvEgUCvCDhPCyhD+Ojsh2qXC+ag80wg4GBAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler(os.getenv('359f2e4dd571624475a8dff30205f2ec'))
+handler = WebhookHandler('359f2e4dd571624475a8dff30205f2ec')
 # OPENAI API Key初始化設定
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
-def GPT_response(text):
-    # 接收回應
-    response = openai.Completion.create(model="gpt-3.5-turbo-instruct", prompt=text, temperature=0.5, max_tokens=500)
-    print(response)
-    # 重組回應
-    answer = response['choices'][0]['text'].replace('。','')
-    return answer
+# def GPT_response(text):
+#     # 接收回應
+#     response = openai.Completion.create(model="gpt-3.5-turbo-instruct", prompt=text, temperature=0.5, max_tokens=500)
+#     print(response)
+#     # 重組回應
+#     answer = response['choices'][0]['text'].replace('。','')
+#     return answer
 
 
 # 監聽所有來自 /callback 的 Post Request

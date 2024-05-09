@@ -19,9 +19,9 @@ import traceback
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
+line_bot_api = LineBotApi(os.getenv('RBAYU0Red+gxK6lHf+WLzF2mtiF3YNVImBKaeWTkDUVakiDWuNyF/bXxgxrPuVn2yX+2GvYNF6z3hozwzNHIKa0D+djwr3cKEXnXHFmIbTYGXtg2a2LYvEgUCvCDhPCyhD+Ojsh2qXC+ag80wg4GBAdB04t89/1O/w1cDnyilFU='))
 # Channel Secret
-handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
+handler = WebhookHandler(os.getenv('359f2e4dd571624475a8dff30205f2ec'))
 # OPENAI API Key初始化設定
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
@@ -55,14 +55,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    try:
-        GPT_answer = GPT_response(msg)
-        print(GPT_answer)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(GPT_answer))
-    except:
-        print(traceback.format_exc())
-        line_bot_api.reply_message(event.reply_token, TextSendMessage('你所使用的OPENAI API key額度可能已經超過，請於後台Log內確認錯誤訊息'))
-        
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(msg))
 
 @handler.add(PostbackEvent)
 def handle_message(event):
